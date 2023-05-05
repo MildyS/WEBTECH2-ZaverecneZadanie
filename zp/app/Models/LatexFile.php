@@ -4,16 +4,20 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
-class Role extends Model
+class LatexFile extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'name',
+        'file_name',
+        'file_path',
     ];
-    public function users()
+
+    public function user()
     {
-        return $this->belongsToMany(User::class, 'user_role');
+        return $this->belongsTo(User::class);
     }
+
 }

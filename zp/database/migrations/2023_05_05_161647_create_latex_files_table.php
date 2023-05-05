@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use App\Models\Role;
 
 return new class extends Migration
 {
@@ -12,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('roles', function (Blueprint $table) {
+        Schema::create('latex_files', function (Blueprint $table) {
             $table->id();
-	        $table->string('name')->unique();
+            $table->unsignedBigInteger('user_id');
+            $table->string('file_name');
+            $table->string('file_path');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
-
-        Role::create(['name' => 'Student']);
-        Role::create(['name' => 'Teacher']);
-
     }
 
     /**
@@ -28,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('roles');
+        Schema::dropIfExists('latex_files');
     }
 };

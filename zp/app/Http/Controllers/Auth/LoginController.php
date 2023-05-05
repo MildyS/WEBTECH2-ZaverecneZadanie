@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -40,17 +40,14 @@ class LoginController extends Controller
     }
     protected function authenticated(Request $request, $user)
     {
-    // If the user has the student role
-    if ($user->hasRole('Student')) {
-        return redirect('/student');
-    }
+        if ($user->hasRole('Teacher')) {
+            return redirect()->route('teacher');
+        }
 
-    // If the user has the teacher role
-    if ($user->hasRole('Teacher')) {
-        return redirect('/teacher');
-    }
+        if ($user->hasRole('Student')) {
+            return redirect()->route('student');
+        }
 
-    // If the user has another role or no role, redirect to the default page
-    return redirect($this->redirectTo);
+        return redirect()->route('/');
     }
 }

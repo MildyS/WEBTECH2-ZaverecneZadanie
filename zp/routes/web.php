@@ -22,9 +22,9 @@ Route::get('/', [RegisterController::class, 'showRegistrationForm'])->name('regi
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
 Route::middleware(['auth'])->group(function () {
     Route::get('/student', [StudentController::class, 'index'])->middleware('role:Student')->name('student');
     Route::get('/teacher', [TeacherController::class, 'index'])->middleware('role:Teacher')->name('teacher');
+    Route::post('/teacher', [TeacherController::class, 'store'])->middleware('role:Teacher')->name('teacher.store');
+    Route::post('/teacher/upload', [App\Http\Controllers\TeacherController::class, 'upload'])->middleware(['auth', 'teacher'])->name('teacher.upload');
 });
