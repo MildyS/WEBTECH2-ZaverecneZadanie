@@ -25,9 +25,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::middleware(['auth'])->group(function () {
     Route::get('/student', function () {
         return view('student');
-    })->name('student');
+    })->middleware('role:Student')->name('student');
 
     Route::get('/teacher', function () {
         return view('teacher');
-    })->name('teacher');
+    })->middleware('role:Teacher')->name('teacher');
 });
