@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\HomeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,21 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
-
-Route::get('/student', [App\Http\Controllers\StudentController::class, 'index'])->middleware(['auth', 'student'])->name('student.dashboard');
-Route::get('/teacher', [App\Http\Controllers\TeacherController::class, 'index'])->middleware(['auth', 'teacher'])->name('teacher.dashboard');
+Route::get('/', [RegisterController::class, 'showRegistrationForm'])->name('register');
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/student', function () {
-        return view('student');
-    })->middleware('role:Student')->name('student');
-
-    Route::get('/teacher', function () {
-        return view('teacher');
-    })->middleware('role:Teacher')->name('teacher');
+    Route::get('/student', [StudentController::class, 'index'])->middleware('role:Student')->name('student');
+    Route::get('/teacher', [TeacherController::class, 'index'])->middleware('role:Teacher')->name('teacher');
 });
