@@ -27,4 +27,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/teacher', [TeacherController::class, 'index'])->middleware('role:Teacher')->name('teacher');
     Route::post('/teacher', [TeacherController::class, 'store'])->middleware('role:Teacher')->name('teacher.store');
     Route::post('/teacher/upload', [App\Http\Controllers\TeacherController::class, 'upload'])->middleware(['auth', 'teacher'])->name('teacher.upload');
+    Route::post('/teacher/upload_image', [App\Http\Controllers\TeacherController::class, 'uploadImage'])->middleware(['auth', 'teacher'])->name('teacher.upload_image');
 });

@@ -35,12 +35,30 @@
             </div>
             <button type="submit" class="btn btn-primary">Add Files</button>
         </form>
-
+        <br>
         <h2>Uploaded Files:</h2>
         <ul>
             @foreach($latexFiles as $file)
                 <li>{{ $file->file_name }}</li>
             @endforeach
         </ul>
+        <br>
+        <br>
+        <form action="{{ route('teacher.upload_image') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <div class="form-group">
+                <label for="image">Upload Image:</label>
+                <input type="file" name="image" id="image" class="form-control-file">
+            </div>
+            <button type="submit" class="btn btn-primary">Add Image</button>
+        </form>
+        <br>
+        <h2>Uploaded Images:</h2>
+        <ul>
+            @foreach($images as $image)
+                <li>{{ $image->file_name }}</li>
+            @endforeach
+        </ul>
+
     </div>
 @endsection
