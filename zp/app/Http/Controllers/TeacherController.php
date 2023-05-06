@@ -31,11 +31,33 @@ class TeacherController extends Controller
 
     public function togglePublish($id)
     {
-        $latexFile = LatexFile::where('id', $id)->where('user_id', auth()->user()->id)->firstOrFail();
-        $latexFile->is_published = !$latexFile->is_published;
+        $latexFile = LatexFile::findOrFail($id);
+
+        if ($latexFile->is_published) {
+            $latexFile->is_published = false;
+        } else {
+            if ($latexFile->publish_at && $latexFile->publish_at->isFuture()) {
+                $latexFile->publish_at = null;
+            }
+            $latexFile->is_published = true;
+        }
+
         $latexFile->save();
 
-        return back()->with('success', 'File publish status updated successfully!');
+        return back();
+    }
+
+    public function setPublishDate(Request $request, $id)
+    {
+        $request->validate([
+            'publish_at' => 'required|date|after:now',
+        ]);
+
+        $latexFile = LatexFile::findOrFail($id);
+        $latexFile->publish_at = $request->publish_at;
+        $latexFile->save();
+
+        return back()->with('success', 'Publish date set successfully!');
     }
 
     public function store(Request $request)

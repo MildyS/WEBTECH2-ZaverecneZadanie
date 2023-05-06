@@ -25,6 +25,7 @@
         <br>
         <h2>Uploaded Files:</h2>
         <ul>
+            <!-- ... -->
             @foreach($latexFiles as $file)
                 <li>
                     {{ $file->file_name }}
@@ -39,8 +40,16 @@
                             {{ $file->is_published ? 'Unpublish' : 'Publish' }}
                         </button>
                     </form>
+                    <form action="{{ route('teacher.setPublishDate', $file->id) }}" method="POST" style="display: inline;">
+                        @csrf
+                        <input type="datetime-local" name="publish_at" value="{{ optional($file->publish_at)->format('Y-m-d\TH:i') }}" min="{{ now()->format('Y-m-d\TH:i') }}">
+                        <button type="submit" class="btn btn-sm btn-info">
+                            Set Publish Date
+                        </button>
+                    </form>
                 </li>
             @endforeach
+
         </ul>
         <br>
         <h2>Uploaded Images:</h2>
