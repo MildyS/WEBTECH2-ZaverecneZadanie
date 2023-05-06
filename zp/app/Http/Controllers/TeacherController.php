@@ -22,6 +22,13 @@ class TeacherController extends Controller
         return view('teacher', compact('students', 'latexFiles', 'images'));
     }
 
+    public function addFiles()
+    {
+        $latexFiles = LatexFile::where('user_id', auth()->user()->id)->get();
+        $images = ImageFile::where('user_id', auth()->user()->id)->get();
+        return view('teacher.addFiles', compact('latexFiles', 'images'));
+    }
+
     public function store(Request $request)
     {
         $request->validate([
