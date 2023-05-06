@@ -15,12 +15,14 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule): void
     {
         $schedule->call(function () {
+            $now = now();
+            $nowPlusTwoHours = $now->addHours(2);
             LatexFile::query()
                 ->where('is_published', false)
-                ->where('publish_at', '<=', now())
+                ->where('publish_at', '<=', $nowPlusTwoHours)
                 ->update(['is_published' => true]);
-            Log::info('Scheduler is running');
-        })->everyMinute()->appendOutputTo(storage_path('logs/scheduler.log'));
+            echo now();
+        })->everyMinute();
     }
 
     /**
