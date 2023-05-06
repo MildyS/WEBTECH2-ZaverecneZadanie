@@ -35,10 +35,13 @@ class TeacherController extends Controller
 
         if ($latexFile->is_published) {
             $latexFile->is_published = false;
+            $latexFile->publish_at = null;
         } else {
+            /*
             if ($latexFile->publish_at && $latexFile->publish_at->isFuture()) {
                 $latexFile->publish_at = null;
-            }
+            }*/
+            $latexFile->publish_at = now();
             $latexFile->is_published = true;
         }
 
@@ -54,6 +57,9 @@ class TeacherController extends Controller
         ]);
 
         $latexFile = LatexFile::findOrFail($id);
+        if ($latexFile->is_published){
+            $latexFile->is_published = false;
+        }
         $latexFile->publish_at = $request->publish_at;
         $latexFile->save();
 
