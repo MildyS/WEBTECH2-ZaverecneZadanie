@@ -28,4 +28,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/teacher', [TeacherController::class, 'store'])->middleware('role:Teacher')->name('teacher.store');
     Route::post('/teacher/upload', [App\Http\Controllers\TeacherController::class, 'upload'])->middleware(['auth', 'teacher'])->name('teacher.upload');
     Route::post('/teacher/upload_image', [App\Http\Controllers\TeacherController::class, 'uploadImage'])->middleware(['auth', 'teacher'])->name('teacher.upload_image');
+    Route::delete('/teacher/{id}', [TeacherController::class, 'deleteFile'])->middleware('role:Teacher')->name('teacher.delete');
+    Route::delete('/teacher/image/{id}', [TeacherController::class, 'deleteImage'])->middleware('role:Teacher')->name('teacher.deleteImage');
+
 });

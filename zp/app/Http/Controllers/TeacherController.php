@@ -52,7 +52,7 @@ class TeacherController extends Controller
         $file = $request->file('file');
         $fileName = time() . '_' . $file->getClientOriginalName();
 
-        $path = $file->storeAs('latex_files', $fileName, 'public');
+        $path = $file->storeAs('public/latex_files', $fileName);
 
         $latexFile = new LatexFile;
         $latexFile->file_name = $fileName;
@@ -70,15 +70,41 @@ class TeacherController extends Controller
         ]);
 
         $imageName = time() . '.' . $request->image->getClientOriginalExtension();
-        $request->image->storeAs('latex_files/images', $imageName, 'public');
+        $path = $request->image->storeAs('public/latex_files/images', $imageName);
 
         ImageFile::create([
             'user_id' => auth()->user()->id,
             'file_name' => $imageName,
-            'file_path' => 'storage/latex_files/images/' . $imageName,
+            'file_path' => $path,
         ]);
 
         return back()->with('success', 'Image uploaded and stored in the database successfully');
     }
+
+    public function deleteFile($id)
+    {
+        $latexFile = LatexFile::findOrFail($id);
+
+        if (Storage::delete($latexFile->file_path)) {
+            $latexFile->delete();
+            return back()->with('success', 'File deleted successfully!');
+        } else {
+            return back()->with('error', 'File deletion failed!');
+        }
+    }
+
+    public function deleteImage($id)
+    {
+        $imageFile = ImageFile::findOrFail($id);
+
+        if (Storage::delete($imageFile->file_path)) {
+            $imageFile->delete();
+            return back()->with('success', 'Image deleted successfully!');
+        } else {
+            return back()->with('error', 'Image deletion failed!');
+        }
+    }
+
+
 
 }

@@ -39,7 +39,14 @@
         <h2>Uploaded Files:</h2>
         <ul>
             @foreach($latexFiles as $file)
-                <li>{{ $file->file_name }}</li>
+                <li>
+                    {{ $file->file_name }}
+                    <form action="{{ route('teacher.delete', $file->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </li>
             @endforeach
         </ul>
         <br>
@@ -56,7 +63,14 @@
         <h2>Uploaded Images:</h2>
         <ul>
             @foreach($images as $image)
-                <li>{{ $image->file_name }}</li>
+                <li>
+                    {{ $image->file_name }}
+                    <form action="{{ route('teacher.deleteImage', $image->id) }}" method="POST">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </li>
             @endforeach
         </ul>
 
