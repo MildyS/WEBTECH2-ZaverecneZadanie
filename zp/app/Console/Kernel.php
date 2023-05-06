@@ -5,7 +5,6 @@ namespace App\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use App\Models\LatexFile;
-use Illuminate\Support\Facades\Log;
 
 class Kernel extends ConsoleKernel
 {
@@ -21,7 +20,6 @@ class Kernel extends ConsoleKernel
                 ->where('is_published', false)
                 ->where('publish_at', '<=', $nowPlusTwoHours)
                 ->update(['is_published' => true]);
-            echo now();
         })->everyMinute();
     }
 
