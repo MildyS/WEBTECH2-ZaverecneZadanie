@@ -28,10 +28,16 @@
             @foreach($latexFiles as $file)
                 <li>
                     {{ $file->file_name }}
-                    <form action="{{ route('teacher.delete', $file->id) }}" method="POST">
+                    <form action="{{ route('teacher.delete', $file->id) }}" method="POST" style="display: inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                    <form action="{{ route('teacher.togglePublish', $file->id) }}" method="POST" style="display: inline;">
+                        @csrf
+                        <button type="submit" class="btn btn-sm {{ $file->is_published ? 'btn-warning' : 'btn-success' }}">
+                            {{ $file->is_published ? 'Unpublish' : 'Publish' }}
+                        </button>
                     </form>
                 </li>
             @endforeach
@@ -50,6 +56,7 @@
                 </li>
             @endforeach
         </ul>
-
+        <br>
+        <br>
     </div>
 @endsection

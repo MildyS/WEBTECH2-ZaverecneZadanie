@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use App\Models\LatexFile;
 class StudentController extends Controller
 {
     public function index()
     {
-        return view('student');
+        $publishedFiles = LatexFile::where('is_published', true)->get();
+        return view('student', compact('publishedFiles'));
     }
 }

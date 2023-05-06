@@ -29,6 +29,15 @@ class TeacherController extends Controller
         return view('teacher.addFiles', compact('latexFiles', 'images'));
     }
 
+    public function togglePublish($id)
+    {
+        $latexFile = LatexFile::where('id', $id)->where('user_id', auth()->user()->id)->firstOrFail();
+        $latexFile->is_published = !$latexFile->is_published;
+        $latexFile->save();
+
+        return back()->with('success', 'File publish status updated successfully!');
+    }
+
     public function store(Request $request)
     {
         $request->validate([

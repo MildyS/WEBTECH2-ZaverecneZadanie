@@ -31,5 +31,6 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/teacher/{id}', [TeacherController::class, 'deleteFile'])->middleware('role:Teacher')->name('teacher.delete');
     Route::delete('/teacher/image/{id}', [TeacherController::class, 'deleteImage'])->middleware('role:Teacher')->name('teacher.deleteImage');
     Route::get('/teacher/addFiles', [App\Http\Controllers\TeacherController::class, 'addFiles'])->middleware(['auth', 'teacher'])->name('teacher.addFiles');
+    Route::post('/teacher/toggle-publish/{id}', [TeacherController::class, 'togglePublish'])->middleware('role:Teacher')->name('teacher.togglePublish');
 
 });
