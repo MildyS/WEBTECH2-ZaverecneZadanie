@@ -29,6 +29,15 @@
             @foreach($latexFiles as $file)
                 <li>
                     {{ $file->file_name }}
+                    @if($file->publish_at)
+                        @if($file->publish_at >= now()->addHours(2))
+                            (Will be published at: {{ $file->publish_at }})
+                        @else
+                            (Published at: {{ $file->publish_at }})
+                        @endif
+                    @else
+                        (Published date not set yet.)
+                    @endif
                     <form action="{{ route('teacher.delete', $file->id) }}" method="POST" style="display: inline;">
                         @csrf
                         @method('DELETE')
