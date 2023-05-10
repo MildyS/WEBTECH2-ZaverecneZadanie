@@ -10,6 +10,8 @@ class LatexFile extends Model
 {
     use HasFactory;
 
+    protected $table = 'latex_files';
+
     protected $fillable = [
         'file_name',
         'file_path',
@@ -18,6 +20,11 @@ class LatexFile extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
     }
 
 }

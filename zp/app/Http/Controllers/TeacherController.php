@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\LatexFile;
 use App\Models\ImageFile;
 use Illuminate\Support\Facades\Storage;
+
+use Illuminate\Support\Facades\Log;
 
 class TeacherController extends Controller
 {
@@ -104,8 +107,21 @@ class TeacherController extends Controller
         $latexFile->user_id = auth()->user()->id;
         $latexFile->save();
 
+        $parsedContent = $this->latex_parser($file->get());
+
+        foreach ($parsedContent as $content) {
+            $task = new Task([
+                'task' => $content['task'],
+                'solution' => $content['solution'],
+                'images' => $content['images'],  // Convert the array of image paths to a JSON string
+            ]);
+            $latexFile->tasks()->save($task);
+        }
+
         return back()->with('success', 'File uploaded successfully!');
     }
+
+
 
     public function uploadImage(Request $request)
     {
@@ -147,6 +163,55 @@ class TeacherController extends Controller
         } else {
             return back()->with('error', 'Image deletion failed!');
         }
+    }
+
+    private function latex_parser($latex) {
+        // Split into sections
+        $sections = preg_split('/\\\\section\*\{.*?\}/', $latex);
+
+        $tasks = [];
+
+        foreach($sections as $section) {
+            // Find tasks
+            preg_match('/\\\\begin\{task\}(.*?)\\\\end\{task\}/s', $section, $taskMatches);
+
+            // Find solutions
+            preg_match('/\\\\begin\{solution\}(.*?)\\\\end\{solution\}/s', $section, $solutionMatches);
+
+
+            if (isset($taskMatches[1])) {
+                // Extract the image path from the task content.
+                preg_match('/\\\\includegraphics\{(.*?)\}/', $taskMatches[1], $imageMatches);
+
+
+                // Remove the image path from the task content.
+                $task = preg_replace('/\\\\includegraphics\{(.*?)\}/', '', $taskMatches[1]);
+                $task = trim($task);
+
+                $solution = '';
+                if (isset($solutionMatches[1])) {
+                    $solution = trim($solutionMatches[1]);
+                }
+                preg_match('/\\\\begin\{equation\*\}(.*?)\\\\end\{equation\*\}/s', $solutionMatches[1], $equationMatches);
+                if (isset($equationMatches[1])) {
+                    $solution = trim($equationMatches[1]);
+                }
+
+                // Extract the image path.
+                $images = [];
+                if (isset($imageMatches[1])) {
+                    $images = $imageMatches[1];
+                }
+
+                $tasks[] = [
+                    'task' => $task,
+                    'solution' => $solution,
+                    'images' => $images,
+                ];
+            }
+        }
+
+        return $tasks;
     }
 
 
