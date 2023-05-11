@@ -33,5 +33,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/teacher/addFiles', [App\Http\Controllers\TeacherController::class, 'addFiles'])->middleware(['auth', 'teacher'])->name('teacher.addFiles');
     Route::post('/teacher/toggle-publish/{id}', [TeacherController::class, 'togglePublish'])->middleware('role:Teacher')->name('teacher.togglePublish');
     Route::post('/teacher/setPublishDate/{id}', [TeacherController::class, 'setPublishDate'])->name('teacher.setPublishDate');
+    Route::post('/student/start-exam', [StudentController::class, 'startExam'])->middleware('role:Student')->name('student.startExam');
+    Route::get('/student/exam', [StudentController::class, 'showExam'])->middleware('role:Student')->name('student.exam');
+
 
 });
