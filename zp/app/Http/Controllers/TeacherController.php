@@ -129,7 +129,7 @@ class TeacherController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $imageName = time() . '.' . $request->image->getClientOriginalExtension();
+        $imageName = $request->image->getClientOriginalName();
         $path = $request->image->storeAs('public/latex_files/images', $imageName);
 
         ImageFile::create([

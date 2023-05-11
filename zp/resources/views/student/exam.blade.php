@@ -13,7 +13,7 @@
 
         @if($task->images)
             <h2>Images:</h2>
-            <img src="{{ $task->images }}" alt="Problem image">
+            <img src="{{ asset('/storage/latex_files' . $task->images) }}" alt="Problem image">
         @endif
     </div>
 @endsection
