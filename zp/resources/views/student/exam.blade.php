@@ -5,17 +5,18 @@
     <div class="container">
         <h1>Exam</h1>
 
-        <h2>Problem:</h2>
-        <p>{{ $task->task }}</p>
+        @foreach($tasks as $task)
+            <h2>Problem:</h2>
+            <p>{{ $task->task }}</p>
 
-        @if($task->images)
-            <img src="{{ asset('/storage/latex_files' . $task->images) }}" alt="Problem image">
-        @endif
-        <br>
-        <br>
-        <h2>Solution:</h2>
-        <p>${{ $task->solution }}$</p>
-
+            @if($task->images)
+                <img src="{{ asset('/storage/latex_files' . $task->images) }}" alt="Problem image">
+            @endif
+            <br>
+            <br>
+            <h2>Solution:</h2>
+            <p>${{ $task->solution }}$</p>
+        @endforeach
     </div>
 
 @endsection
