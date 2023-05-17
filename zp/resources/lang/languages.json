@@ -1,0 +1,151 @@
+{
+    "defLang": {
+        "1" : "en",
+        "2" : "sk"
+    },
+    "Language": {
+        "en" : "Select language",
+        "sk" : "Zvoľte jazyk"
+    },
+    "Login": {
+        "en" : "Login",
+        "sk" : "Prihlásenie"
+    },
+    "Email address": {
+        "en" : "Email address",
+        "sk" : "Emailová adresa"
+    },
+    "Confirm": {
+        "en" : "Confirm password",
+        "sk" : "Over heslo"
+    },
+    "Forgot": {
+        "en" : "Forgot Your Password?",
+        "sk" : "Zabudol si heslo?"
+    },
+    "Dashboard Student": {
+        "en" : "Student Dashboard",
+        "sk" : "Nástenka pre študenta"
+    },
+    "Published Files": {
+        "en" : "Published Files:",
+        "sk" : "Zverejnené súbory:"
+    },
+    "Start Exam": {
+        "en" : "Start exam",
+        "sk" : "Začať test"
+    },
+    "Dashboard": {
+        "en" : "Dashboard",
+        "sk" : "Nástenka"
+    },
+
+    "Logged": {
+        "en" : "You are logged in!",
+        "sk" : "Si prihlásený!"
+    },
+    "Logout": {
+        "en" : "Logout",
+        "sk" : "Odhlásenie"
+    },
+    "Register": {
+        "en" : "Register",
+        "sk" : "Registrácia"
+    },
+    "Role": {
+        "en" : "Role",
+        "sk" : "Rola"
+    },
+    "Teacher": {
+        "en" : "Teacher",
+        "sk" : "Učiteľ"
+    },
+    "Student": {
+        "en" : "Student",
+        "sk" : "Študent"
+    },
+    "Name": {
+        "en" : "Name",
+        "sk" : "Meno"
+    },
+    "Remember": {
+        "en" : "Remember me",
+        "sk" : "Zapamätaj si ma"
+    },
+    "Exam": {
+        "en" : "Exam",
+        "sk" : "Test"
+    },
+    "Problem": {
+        "en" : "Problem",
+        "sk" : "Príklad"
+    },
+    "Solution": {
+        "en" : "Solution:",
+        "sk" : "Riešenie:"
+    },
+    "Welcome": {
+        "en" : "Welcome",
+        "sk" : "Vitaj"
+    },
+    "Uploaded Files": {
+        "en" : "Uploaded Files",
+        "sk" : "Nahraté súbory"
+    },
+    "Uploaded Images": {
+        "en" : "Uploaded Images",
+        "sk" : "Nahraté obrázky"
+    },
+    "File Name": {
+        "en" : "File Name",
+        "sk" : "Názov súboru"
+    },
+    "Status": {
+        "en" : "Status",
+        "sk" : "Status"
+    },
+    "Actions": {
+        "en" : "Actions",
+        "sk" : "Akcie"
+    },
+    "Delete": {
+        "en" : "Delete",
+        "sk" : "Zmazanie"
+    },
+    "Unpublish": {
+        "en" : "Unpublish",
+        "sk" : "Zrušenie zverejnenie"
+    },
+    "Set Date": {
+        "en" : "Set Publish Date",
+        "sk" : "Nastavenie dátumu zverejnenia"
+    },
+    "Image Name": {
+        "en" : "Image Name",
+        "sk" : "Názov obrázku"
+    },
+    "Add Files": {
+        "en" : "Add Files",
+        "sk" : "Pridanie súborov"
+    },
+    "Add Image": {
+        "en" : "Add Image",
+        "sk" : "Pridanie obrázkov"
+    },
+    "Upload Files": {
+        "en" : "Upload LaTeX Files",
+        "sk" : "Nahratie LaTeXových súborov"
+    },
+    "Upload Image": {
+        "en" : "Upload Image",
+        "sk" : "Nahratie obrázkov"
+    },
+    "Choose": {
+        "en" : "Choose LaTex File",
+        "sk" : "Vyber LaTexový súbor"
+    },
+    "Password": {
+        "en" : "Password",
+        "sk" : "Heslo"
+    }
+}

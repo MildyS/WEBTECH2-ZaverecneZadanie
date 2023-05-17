@@ -7,16 +7,10 @@ use App;
 
 class LocalizationController extends Controller
 {
-    public function index()
+    public function changeLanguage(Request $request)
     {
-
-        return view('translation');
-
-    }
-    public function lang_change(Request $request)
-    {
-        App::setLocale($request->lang);
-        session()->put('locale', $request->lang);
+        $language = $request->input('language');
+        App::setLocale($language);
 
         return redirect()->back();
     }

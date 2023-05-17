@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SubmitSolutionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +35,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/teacher/setPublishDate/{id}', [TeacherController::class, 'setPublishDate'])->name('teacher.setPublishDate');
     Route::post('/student/start-exam', [StudentController::class, 'startExam'])->middleware('role:Student')->name('student.startExam');
     Route::get('/student/exam', [StudentController::class, 'showExam'])->middleware('role:Student')->name('student.exam');
-    Route::get('lang/home', [LocalizationController::class, 'index']);
-    Route::get('lang/change', [LocalizationController::class, 'change'])->name('changeLang');
+    //Route::get('lang/home', [LocalizationController::class, 'index']);
+    //Route::get('lang/change', [LocalizationController::class, 'change'])->name('changeLang');
+    Route::post('/exam/submit', [SubmitSolutionController::class, 'submitSolution'])->name('exam.submit');
+    Route::post('/change-language', 'LocalizationController@changeLanguage')->name('changeLanguage');
+
 });

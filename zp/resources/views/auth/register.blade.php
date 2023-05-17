@@ -4,38 +4,56 @@
 @section('content')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <div class="container">
-        <div class="row" style="text-align: center;margin-top: 40px;">
-            <div class="col-md-2 col-md-offset-3 text-right">
-                <strong>Select Language: </strong>
-            </div>
-            <div class="col-md-4">
-                <select class="form-control Langchange">
-                    <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>
-                    <option value="sk" {{ session()->get('locale') == 'sk' ? 'selected' : '' }}>Slovak</option>
-                </select>
-            </div>
-        </div>
-    </div>
+{{--    <div class="container">--}}
+{{--        <div class="row" style="text-align: center;margin-top: 40px;">--}}
+{{--            <div class="col-md-2 col-md-offset-3 text-right">--}}
+{{--                <strong>Select Language: </strong>--}}
+{{--            </div>--}}
+{{--            <div class="col-md-4">--}}
+{{--                <select class="form-control Langchange">--}}
+{{--                    <option value="en" {{ session()->get('locale') == 'en' ? 'selected' : '' }}>English</option>--}}
+{{--                    <option value="sk" {{ session()->get('locale') == 'sk' ? 'selected' : '' }}>Slovak</option>--}}
+{{--                </select>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
-    <script type="text/javascript">
-        var url = "{{ url('change/lang') }}";
-        $(".Langchange").change(function(){
-            window.location.href = url + "?lang="+ $(this).val();
+{{--    <script type="text/javascript">--}}
+{{--        var url = "{{ url('change/lang') }}";--}}
+{{--        $(".Langchange").change(function(){--}}
+{{--            window.location.href = url + "?lang="+ $(this).val();--}}
+{{--        });--}}
+{{--    </script>--}}
+<script>
+
+    function changeLanguage(language) {
+        $.ajax({
+            url: '/change-language',
+            type: 'POST',
+            data: { language: language },
+            success: function(response) {
+                // Handle success response if needed
+            },
+            error: function(xhr, status, error) {
+                // Handle error response if needed
+            }
         });
-    </script>
+    }
+</script>
+
 
     <div class="container">
+        <button onclick="changeLanguage('en')">EN </button>
+        <button onclick="changeLanguage('sk')">SK </button>
     <div class="row justify-content-center">
         <div class="col-md-11">
             <div >
                 <div >
-                    <h3>@lang('translation.register')</h3>
+                    <h3>Register</h3>
                 </div>
                 <div class="my-element">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
-
                         <div class="row mb-4">
                             <label for="name">
                                 <h5>@lang('translation.name')</h5>
