@@ -1,0 +1,25 @@
+#app{
+    background-color: #5A5A5A;
+    color: #e5e7eb;
+}
+
+.navbar{
+    background-color: #404040;
+    font-weight: bolder;
+    font-size: larger;
+}
+
+/*.navbar-brand{*/
+/*    color: #d24193 !important;*/
+/*}*/
+/*.nav-item {*/
+/*    color: #d24193 !important;*/
+/*    font-weight: bolder;*/
+/*    font-size: 10px;*/
+/*}*/
+
+/*.hover-effect :hover{*/
+/*    color: #ea2165;*/
+/*}*/
+
+

@@ -12,16 +12,22 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+{{--    @push('styles')--}}
+{{--        <link href="{{ asset('resources/css/app.css') }}" rel="stylesheet">--}}
+{{--    @endpush--}}
+
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md shadow-sm navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand"  href="{{ url('/') }}">
+                    <h2> {{ config('app.name', 'Laravel') }} </h2>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -38,14 +44,14 @@
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <li class="nav-item my-element">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }} <i class="bi bi-box-arrow-in-right"></i></a>
                                 </li>
                             @endif
 
                             @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <li class="nav-item my-element">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }} <i class="bi bi-file-person-fill"></i> </a>
                                 </li>
                             @endif
                         @else
@@ -86,3 +92,35 @@
     @stack('scripts')
 </body>
 </html>
+
+<style>
+    #app {
+        background-color: #202124;
+    }
+
+    .navbar {
+        color: #e5e7eb;
+        font-weight: bolder;
+        font-size: larger;
+    }
+
+    .navbar-brand{
+        font-weight: bolder;
+        color: #da3c8b
+    }
+
+    h2{
+        font-weight: bolder;
+    }
+
+    .nav-item :hover{
+        color: #da3c8b;
+        text-shadow: 0 0 1px #da3c8b;
+    }
+
+
+</style>
+
+
+
+
