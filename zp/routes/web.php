@@ -35,6 +35,6 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/teacher/setPublishDate/{id}', [TeacherController::class, 'setPublishDate'])->name('teacher.setPublishDate');
     Route::post('/student/start-exam', [StudentController::class, 'startExam'])->middleware('role:Student')->name('student.startExam');
     Route::get('/student/exam', [StudentController::class, 'showExam'])->middleware('role:Student')->name('student.exam');
-
-
+    Route::get('lang/home', [LocalizationController::class, 'index']);
+    Route::get('lang/change', [LocalizationController::class, 'change'])->name('changeLang');
 });
