@@ -8,9 +8,9 @@
         <table class="table data-table t1 col-md-4">
             <thead>
             <tr>
-                <th  data-orderable="false">ID</th>
-                <th>Name</th>
-                <th data-orderable="false">Email</th>
+                <th data-orderable="false" style="width: 33.3%">ID</th>
+                <th style="width: 33.3%">Name</th>
+                <th data-orderable="false" style="width: 33.3%">Email</th>
             </tr>
             </thead>
             <tbody>
@@ -22,22 +22,23 @@
                 </tr>
             @endforeach
             </tbody>
-<script>
-            $(document).ready(function () {
-            $('.t1').DataTable({
-            "order": [[1, "asc"]]
-            });
-            });
-</script>
+
+            <script>
+                $(document).ready(function () {
+                $('.t1').DataTable({
+                "order": [[1, "asc"]]
+                });
+                });
+            </script>
         </table>
         <br>
         <h2>Uploaded Files:</h2>
-        <table class="table data-table">
+        <table class="table data-table col-md-4">
             <thead>
             <tr>
-                <th>File Name</th>
-                <th>Status</th>
-                <th>Actions</th>
+                <th style="width: 29%">File Name</th>
+                <th style="width: 29%">Status</th>
+                <th style="width: 42%">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -84,8 +85,8 @@
         <table class="table">
             <thead>
             <tr>
-                <th>Image Name</th>
-                <th>Action</th>
+                <th style="width: 85%" >Image Name</th>
+                <th style="width: 15%">Action</th>
             </tr>
             </thead>
             <tbody>
@@ -114,3 +115,18 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css" />
 <script src="resources/js/app.js" ></script>
 
+<style>
+
+h1{
+color: #e5e7eb;
+font-weight: bolder;
+}
+
+.container{
+    color: #e5e7eb;
+}
+
+th, tr, td{
+    color: #e5e7eb;
+}
+</style>
