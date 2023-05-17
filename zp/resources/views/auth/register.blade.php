@@ -25,21 +25,23 @@
         });
     </script>
 
-
-    <div class="container" style="margin-top: 10px;">
+    <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">@lang('translation.register')</div>
-
-                <div class="card-body">
+        <div class="col-md-11">
+            <div >
+                <div >
+                    <h3>@lang('translation.register')</h3>
+                </div>
+                <div class="my-element">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">@lang('translation.name')</label>
+                        <div class="row mb-4">
+                            <label for="name">
+                                <h5>@lang('translation.name')</h5>
+                            </label>
 
-                            <div class="col-md-6">
+                            <div>
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
@@ -50,10 +52,12 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">@lang('translation.email')</label>
+                        <div class="row mb-4">
+                            <label for="email">
+                                <h5>@lang('translation.email')</h5>
+                            </label>
 
-                            <div class="col-md-6">
+                            <div >
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
@@ -64,10 +68,12 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">@lang('translation.password')</label>
+                        <div class="row mb-4">
+                            <label for="password">
+                                <h5>@lang('translation.password')</h5>
+                            </label>
 
-                            <div class="col-md-6">
+                            <div >
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
                                 @error('password')
@@ -78,28 +84,33 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">@lang('translation.confirmP')</label>
+                        <div class="row mb-4">
+                            <label for="password-confirm">
+                                <h5>@lang('translation.confirmP')</h5>
+                            </label>
 
-                            <div class="col-md-6">
+                            <div>
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                        <div class="row mb-4 form-group row justify-content-center ">
+                            <label for="role">
+                                <h5>@lang('translation.role')</h5>
+                            </label>
+                            <select name="role" id="role" class="form-control">
+                                <option value="Student">@lang('translation.student')</option>
+                                <option value="Teacher">@lang('translation.teacher')</option>
+                            </select>
+                        </div>
+
+                        <div class="row mb-8">
+                            <div>
                                 <button type="submit" class="btn btn-primary">
                                     @lang('translation.register')
                                 </button>
                             </div>
                         </div>
-			<div class="form-group">
-				<label for="role">@lang('translation.role')</label>
-				<select name="role" id="role" class="form-control">
-					<option value="Student">@lang('translation.student')</option>
-					<option value="Teacher">@lang('translation.teacher')</option>
-    				</select>
-			</div>
                     </form>
                 </div>
             </div>
@@ -107,3 +118,11 @@
     </div>
 </div>
 @endsection
+
+<style>
+
+    h3, h5{
+        color: #e5e7eb;
+        font-weight: bolder;
+    }
+</style>
