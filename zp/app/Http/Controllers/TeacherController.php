@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\LatexFile;
 use App\Models\ImageFile;
 use Illuminate\Support\Facades\Storage;
+use App\Models\FinishedFile;
 
 use Illuminate\Support\Facades\Log;
 
@@ -19,11 +20,26 @@ class TeacherController extends Controller
             $query->where('name', 'Student');
         })->get();
 
+        $studentData = [];
+
+        foreach ($students as $student) {
+            $filesGenerated = FinishedFile::where('user_id', $student->id)->count();
+            $totalPoints = FinishedFile::where('user_id', $student->id)->sum('points');
+
+            $studentData[] = [
+                'id' => $student->id,
+                'name' => $student->name,
+                'filesGenerated' => $filesGenerated,
+                'totalPoints' => $totalPoints,
+            ];
+        }
+
         $latexFiles = LatexFile::all();
         $images = ImageFile::where('user_id', auth()->user()->id)->get();
 
-        return view('teacher', compact('students', 'latexFiles', 'images'));
+        return view('teacher', compact('students', 'latexFiles', 'images', 'studentData'));
     }
+
 
     public function addFiles()
     {
