@@ -11,7 +11,7 @@
             font-family: 'DejaVu Serif', serif;
         }
     </style>
-    <div class="container">
+    <div class="container col-md-6">
         <h3>Manuál</h3>
         <div>
             <p>
