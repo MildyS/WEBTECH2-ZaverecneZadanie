@@ -191,7 +191,9 @@ class TeacherController extends Controller
 
                 // Remove the image path from the task content.
                 $task = preg_replace('/\\\\includegraphics\{(.*?)\}/', '', $taskMatches[1]);
+                $task = preg_replace('/\\\\begin\{equation\*\}(.*?)\\\\end\{equation\*\}/s', '$ $1$', $task);
                 $task = trim($task);
+
 
                 $solution = '';
                 if (isset($solutionMatches[1])) {
@@ -207,6 +209,7 @@ class TeacherController extends Controller
                 if (isset($imageMatches[1])) {
                     $images = $imageMatches[1];
                 }
+
 
                 $tasks[] = [
                     'task' => $task,
