@@ -105,42 +105,52 @@
         </footer>
     </div>
     @stack('scripts')
+    <script>
+        function setMainMinHeight() {
+            var height = document.documentElement.clientHeight - document.querySelector("nav").clientHeight - document.querySelector("footer").clientHeight
+            document.querySelector("main").style.minHeight = height + 'px'
+            console.log(height)
+        }
+
+        setMainMinHeight()
+        window.addEventListener('resize', setMainMinHeight);
+
+    </script>
+    <style>
+        #app {
+            background-color: #202124;
+        }
+
+        .navbar{
+            color: #e5e7eb;
+            font-weight: bolder;
+            font-size: larger;
+        }
+
+        .navbar-brand,
+        .y,
+        .n{
+            font-weight: bolder;
+            color: #da3c8b
+        }
+
+        h2{
+            font-weight: bolder;
+        }
+
+        .nav-item :hover{
+            color: #da3c8b;
+            text-shadow: 0 0 1px #da3c8b;
+        }
+
+        .names{
+            text-align: right;
+        }
+    </style>
 </body>
 </html>
 
-<style>
-    #app {
-        background-color: #202124;
-    }
 
-    .navbar{
-        color: #e5e7eb;
-        font-weight: bolder;
-        font-size: larger;
-    }
-
-    .navbar-brand,
-    .y,
-    .n{
-        font-weight: bolder;
-        color: #da3c8b
-    }
-
-    h2{
-        font-weight: bolder;
-    }
-
-    .nav-item :hover{
-        color: #da3c8b;
-        text-shadow: 0 0 1px #da3c8b;
-    }
-
-    .names{
-        text-align: right;
-    }
-
-
-</style>
 
 
 
