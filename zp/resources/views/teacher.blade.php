@@ -58,7 +58,10 @@
                 });
             });
         </script>
+        <br>
 
+        <a href="{{ route('export') }}" class="btn btn-primary">Export to CSV</a>
+        <br>
         <br>
         <h3>Uploaded Files:</h3>
         <table class="table data-table col-md-4">
