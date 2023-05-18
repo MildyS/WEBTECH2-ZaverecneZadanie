@@ -21,14 +21,14 @@ class StudentController extends Controller
     public function startExam(Request $request)
     {
         $selectedFiles = $request->input('selected_files');
-
+        /*
         foreach ($selectedFiles as $fileId) {
             FinishedFile::create([
                 'user_id' => auth()->user()->id,
                 'file_id' => $fileId,
                 'points' => "0/0" // Set initial points to 0/0
             ]);
-        }
+        }*/
 
         $request->session()->put('selected_files', $selectedFiles);
 
