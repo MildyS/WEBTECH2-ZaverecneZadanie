@@ -5,7 +5,7 @@
     <div class="container" style="margin-top: 10px;">
         <div class="row justify-content-center">
             <div class="col-md-12">
-    <h2>Upload LaTeX Files</h2>
+    <h3>Upload LaTeX Files</h3>
                 <br>
     <form action="{{ route('teacher.upload') }}" method="post" enctype="multipart/form-data">
         @csrf

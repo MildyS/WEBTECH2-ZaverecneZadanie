@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Welcome, Teacher!</h1>
+        <h3>Welcome, Teacher!</h3>
         <table class="table data-table t1 col-md-4">
             <thead>
             <tr>
@@ -32,7 +32,7 @@
             </script>
         </table>
         <br>
-        <h2>Uploaded Files:</h2>
+        <h3>Uploaded Files:</h3>
         <table class="table data-table col-md-4">
             <thead>
             <tr>
@@ -81,7 +81,7 @@
             </tbody>
         </table>
         <br>
-        <h2>Uploaded Images:</h2>
+        <h3>Uploaded Images:</h3>
         <table class="table">
             <thead>
             <tr>
@@ -117,9 +117,9 @@
 
 <style>
 
-h1{
-color: #e5e7eb;
-font-weight: bolder;
+h3{
+    color: #e5e7eb;
+    font-weight: bolder;
 }
 
 .container{
