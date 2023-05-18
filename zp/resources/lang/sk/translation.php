@@ -23,8 +23,8 @@ return [
     'problem' => 'Príklad:',
     'solution' => 'Riešenie:',
     'welcome' => 'Vitaj',
-    'uploadedF' => 'Nahraté súbory',
-    'uploadedI' => 'Nahraté obrázky',
+    'uploadedF' => 'Nahraté súbory:',
+    'uploadedI' => 'Nahraté obrázky:',
     'fileName' => 'Názov testu',
     'status' => 'Status',
     'actions' => 'Akcie',
@@ -55,6 +55,10 @@ return [
     'ff' => 'Dokončené súbory',
     'points' => 'Body',
     'nffy' => 'Žiadne dokončené súbory',
-    'manual' => 'Manuál'
+    'manual' => 'Manuál',
+    'res' => 'Výsledky študentov:',
+    'gen' => 'Počet riešených testov:',
+    'export' => 'Export do CSV',
+    'students' => 'Zoznam študentov:'
 
 ];
