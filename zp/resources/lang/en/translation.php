@@ -55,5 +55,5 @@ return [
     'ff' => 'Finished Files',
     'points' => 'Points',
     'nffy' => 'No finished files yet.',
-    'manual' => 'manual'
+    'manual' => 'Manual'
 ];

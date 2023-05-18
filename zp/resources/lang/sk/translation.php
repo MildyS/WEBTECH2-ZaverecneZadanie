@@ -5,10 +5,10 @@ return [
     'password' => 'Heslo',
     'confirmP' => 'Over heslo',
     'forgotP' => 'Zabudol si heslo?',
-    'dashboardStudent' => 'Nástenka pre študenta',
-    'publishedFiles' => 'Zverejnené súbory:',
+    'dashboardStudent' => 'Informačný panel pre študenta',
+    'publishedFiles' => 'Zverejnené testy:',
     'startExam' => 'Začať test',
-    'dashboard' => 'Nástenka',
+    'dashboard' => 'Informačný panel',
     'logged' => 'Si prihlásený!',
     'login' => 'Prihlásenie',
     'logout' => 'Odhlásenie',
@@ -25,7 +25,7 @@ return [
     'welcome' => 'Vitaj',
     'uploadedF' => 'Nahraté súbory',
     'uploadedI' => 'Nahraté obrázky',
-    'fileName' => 'Názov súboru',
+    'fileName' => 'Názov testu',
     'status' => 'Status',
     'actions' => 'Akcie',
     'action' => 'Akcia',
@@ -55,6 +55,6 @@ return [
     'ff' => 'Dokončené súbory',
     'points' => 'Body',
     'nffy' => 'Žiadne dokončené súbory',
-    'manual' => 'manuál'
+    'manual' => 'Manuál'
 
 ];
