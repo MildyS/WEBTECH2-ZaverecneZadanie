@@ -3,38 +3,54 @@
 
 @section('content')
     <div class="container" style="margin-top: 10px;">
-        <h1>Exam</h1>
-        <form action="{{ route('exam.submit') }}" method="POST" id="submitForm">
-            @csrf
+        <div class="row justify-content-center">
+            <div class="col-md-12">
+                <h1>Exam</h1>
+                <form action="{{ route('exam.submit') }}" method="POST" id="submitForm">
+                    @csrf
 
-            @foreach($tasks as $task)
-                <h2>Problem:</h2>
-                <p>{{ $task->task }}</p>
+                    @foreach($tasks as $task)
+                        <h2>Problem:</h2>
+                        <p class="task">{{ $task->task }}</p>
 
-                @if($task->images)
-                    @php
-                        $images = json_decode($task->images, true);
-                    @endphp
-                    @foreach($images as $image)
-                        <img src="{{ asset('/storage/latex_files' . $image) }}" alt="Problem image">
+                        @if($task->images)
+                            @php
+                                $images = json_decode($task->images, true);
+                            @endphp
+                            @foreach($images as $image)
+                                <img src="{{ asset('/storage/latex_files' . $image) }}" alt="Problem image">
+                            @endforeach
+                        @endif
+                        <br>
+                        <br>
+                        <!-- CORTEX CODE -->
+                        <h2>Input:</h2>
+                        <math-field name="solution[{{ $task->id }}]"></math-field>
+                        <br>
+                        <br>
+                        <h2>Solution:</h2>
+                        <p>${{ $task->solution }}$</p>
+
+                        <br>
                     @endforeach
-                @endif
-                <br>
-                <br>
-                <!-- CORTEX CODE -->
-                <h2>Input:</h2>
-                <math-field name="solution[{{ $task->id }}]"></math-field>
-                <br>
-                <br>
-                <h2>Solution:</h2>
-                <p>${{ $task->solution }}$</p>
 
-                <br>
-            @endforeach
-
-            <button id="submitButton" type="submit">Submit</button>
-        </form>
+                    <button id="submitButton" type="submit" class="btn btn-primary" >Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
+
+    <style>
+        h2, h1{
+            color: #e5e7eb;
+            font-weight: bolder;
+        }
+
+        .task{
+            color: #e5e7eb;
+        }
+
+    </style>
 
 @endsection
 
@@ -80,6 +96,7 @@
             });
         });
     </script>
-
-
 @endpush
+
+
+
