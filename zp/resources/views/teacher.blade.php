@@ -78,7 +78,7 @@
                     <td>{{ $file->file_name }}</td>
                     <td>
                         @if($file->publish_at)
-                            @if($file->publish_at >= now())
+                            @if($file->publish_at >= now()->addHours(2))
                                 @lang('translation.willBePublished') {{ $file->publish_at }}
                             @else
                                 @lang('translation.publishedAt') {{ $file->publish_at }}
