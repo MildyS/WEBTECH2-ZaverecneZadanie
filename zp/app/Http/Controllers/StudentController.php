@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FinishedFile;
 use App\Models\LatexFile;
 use App\Models\Task;
 use Illuminate\Http\Request;
@@ -11,17 +12,29 @@ class StudentController extends Controller
     public function index()
     {
         $publishedFiles = LatexFile::where('is_published', true)->get();
-        return view('student', compact('publishedFiles'));
+        $finishedFiles = FinishedFile::where('user_id', auth()->user()->id)->get();
+        $finishedFileIds = $finishedFiles->pluck('file_id')->toArray();
+
+        return view('student', ['publishedFiles' => $publishedFiles, 'finishedFiles' => $finishedFiles, 'finishedFileIds' => $finishedFileIds]);
     }
 
     public function startExam(Request $request)
     {
         $selectedFiles = $request->input('selected_files');
 
+        foreach ($selectedFiles as $fileId) {
+            FinishedFile::create([
+                'user_id' => auth()->user()->id,
+                'file_id' => $fileId,
+                'points' => "0/0" // Set initial points to 0/0
+            ]);
+        }
+
         $request->session()->put('selected_files', $selectedFiles);
 
         return redirect('student/exam');
     }
+
 
     public function showExam(Request $request)
     {

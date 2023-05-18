@@ -12,14 +12,42 @@
             @csrf
 
             @foreach($publishedFiles as $file)
-                <div>
-                    <input type="checkbox" id="file-{{ $file->id }}" name="selected_files[]" value="{{ $file->id }}">
-                    <label for="file-{{ $file->id }}">{{ $file->file_name }}</label>
-                </div>
+                @if(!in_array($file->id, $finishedFileIds))
+                    <div>
+                        <input type="checkbox" id="file-{{ $file->id }}" name="selected_files[]" value="{{ $file->id }}">
+                        <label for="file-{{ $file->id }}">{{ $file->file_name }}</label>
+                    </div>
+                @endif
             @endforeach
 
             <button type="submit" class="btn btn-primary" style="margin-top: 20px">Start exam</button>
         </form>
+
+        <h3 style="margin-bottom: 10px">Finished Files:</h3>
+
+        @if($finishedFiles->isNotEmpty())
+            <table class="table table-dark table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">File Name</th>
+                    <th scope="col">Points</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($finishedFiles as $index => $finishedFile)
+                    <tr>
+                        <th scope="row">{{ $index + 1 }}</th>
+                        <td>{{ $finishedFile->file->file_name }}</td>
+                        <td>{{ $finishedFile->points }}</td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        @else
+            <p>No finished files yet.</p>
+        @endif
+
 
     </div>
 @endsection
