@@ -3,11 +3,11 @@
 @section('content')
 
     <div class="container">
-        <h1>Exam Results</h1>
-        <div>
+        <h3 class="results">Exam Results</h3>
+        <div class="text">
             Points scored: {{ $correctPoints }}
         </div>
-        <div>
+        <div class="text">
             Total possible points: {{ $totalPoints }}
         </div>
 
@@ -15,3 +15,10 @@
     </div>
 
 @endsection
+<style>
+    .results,
+    .text{
+        color: #e5e7eb;
+        font-weight: bolder;
+    }
+</style>

@@ -5,12 +5,12 @@
     <div class="container" style="margin-top: 10px;">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <h1>Exam</h1>
+                <h3 class="text">Exam</h3>
                 <form action="{{ route('exam.submit') }}" method="POST" id="submitForm">
                     @csrf
 
                     @foreach($tasks as $task)
-                        <h2>Problem:</h2>
+                        <h3 class="text">Problem:</h3>
                         <p class="task">{{ $task->task }}</p>
 
                         @if($task->images)
@@ -22,11 +22,11 @@
                         <br>
                         <br>
                         <!-- CORTEX CODE -->
-                        <h2>Input:</h2>
+                        <h3 class="text">Input:</h3>
                         <math-field name="solution[{{ $task->id }}]"></math-field>
                         <br>
                         <br>
-                        <h2>Solution:</h2>
+                        <h3 class="text">Solution:</h3>
                         <p>${{ $task->solution }}$</p>
 
                         <br>
@@ -39,7 +39,8 @@
     </div>
 
     <style>
-        h2, h1{
+        .text,
+        h1{
             color: #e5e7eb;
             font-weight: bolder;
         }
