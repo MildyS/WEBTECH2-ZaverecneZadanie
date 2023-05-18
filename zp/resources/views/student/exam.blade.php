@@ -2,7 +2,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container" style="margin-top: 10px;">
         <h1>Exam</h1>
 
         @foreach($tasks as $task)
