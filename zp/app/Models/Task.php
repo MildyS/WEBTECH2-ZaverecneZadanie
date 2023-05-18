@@ -22,6 +22,7 @@ class Task extends Model
         'solution',
         'images',
         'latex_file_id',
+        'points'
     ];
 
     /**
