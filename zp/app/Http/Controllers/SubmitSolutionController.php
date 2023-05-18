@@ -12,11 +12,15 @@ class SubmitSolutionController
 
     public function submitSolution(Request $request)
     {
+        Log::info('Reached submitSolution method.');
 
-        $correctAnswers = 0;
-        Log::info($request->input('solution'));
+        $totalPoints = 0;
+        $correctPoints = 0;
+
         foreach ($request->input('solution') as $taskId => $solution) {
             $task = Task::find($taskId);
+
+            $totalPoints += $task->points;
 
             $process = new Process(['python3', 'compareLatex.py', $task->solution, $solution]);
             $process->run();
@@ -26,11 +30,11 @@ class SubmitSolutionController
             }
 
             if (trim($process->getOutput()) === 'True') {
-                $correctAnswers++;
+                $correctPoints += $task->points;
             }
         }
 
-        return view('student.results', ['correctAnswers' => $correctAnswers]);
+        return view('student.results', ['correctPoints' => $correctPoints, 'totalPoints' => $totalPoints]);
     }
 
 
