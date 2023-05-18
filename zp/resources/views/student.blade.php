@@ -2,12 +2,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container" style="margin-top: 10px;">
         <h1>Student Dashboard</h1>
 
-        <h2>Published Files:</h2>
+        <h3 style="margin-bottom: 10px">Published Files:</h3>
 
         <form method="POST" action="{{ route('student.startExam') }}">
+            <br>
             @csrf
 
             @foreach($publishedFiles as $file)
@@ -17,8 +18,25 @@
                 </div>
             @endforeach
 
-            <button type="submit">Start exam</button>
+            <button type="submit" class="btn btn-primary" style="margin-top: 20px">Start exam</button>
         </form>
 
     </div>
 @endsection
+
+
+<style>
+    h1, h3{
+        color: #e5e7eb;
+        font-weight: bolder;
+    }
+
+    .container{
+        color: #e5e7eb;
+    }
+
+    .btn-link :hover{
+        color: #da3c8b;
+        text-shadow: 0 0 1px #da3c8b;
+    }
+</style>

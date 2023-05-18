@@ -95,7 +95,7 @@
 
 <style>
     #app {
-        background-color: #202124;
+        /*background-color: #202124;*/
     }
 
     .navbar {
