@@ -6,6 +6,7 @@ use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\SubmitSolutionController;
+use App\Http\Controllers\ManualController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ use App\Http\Controllers\SubmitSolutionController;
 */
 
 Route::get('/', [RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::get('/manual', [ManualController::class, 'show']);
 
 Auth::routes();
 
