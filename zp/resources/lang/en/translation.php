@@ -51,5 +51,9 @@ return [
     'tpp' => 'Total possible points:',
     'backToHome' => 'Back to Home',
     'fl' => 'Final Assignment',
-    'autors' => 'Autors:'
+    'autors' => 'Autors:',
+    'ff' => 'Finished Files',
+    'points' => 'Points',
+    'nffy' => 'No finished files yet.',
+    'manual' => 'manual'
 ];

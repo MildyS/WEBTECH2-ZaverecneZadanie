@@ -51,6 +51,10 @@ return [
     'tpp' => 'Celkový počet bodov:',
     'backToHome' => 'Navrat domov',
     'fl' => 'Záverečné zadanie',
-    'autors' => 'Autori:'
+    'autors' => 'Autori:',
+    'ff' => 'Dokončené súbory',
+    'points' => 'Body',
+    'nffy' => 'Žiadne dokončené súbory',
+    'manual' => 'manuál'
 
 ];
