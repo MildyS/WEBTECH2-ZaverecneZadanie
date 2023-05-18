@@ -3,15 +3,15 @@
 @section('content')
 
     <div class="container">
-        <h3 class="results">Exam Results</h3>
+        <h3 class="results">@lang('translation.examResults')</h3>
         <div class="text">
-            Points scored: {{ $correctPoints }}
+            @lang('translation.pointsScored') {{ $correctPoints }}
         </div>
         <div class="text">
-            Total possible points: {{ $totalPoints }}
+            @lang('translation.tpp') {{ $totalPoints }}
         </div>
 
-        <a href="{{ route('student') }}" class="btn btn-primary">Back to Home</a>
+        <a href="{{ route('student') }}" class="btn btn-primary">@lang('translation.backToHome')</a>
     </div>
 
 @endsection
