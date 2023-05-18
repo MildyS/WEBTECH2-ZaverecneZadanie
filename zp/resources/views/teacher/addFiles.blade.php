@@ -1,12 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="container" style="margin-top: 10px;">
         <div class="row justify-content-center">
             <div class="col-md-12">
-    <h2>Upload LaTeX Files</h2>
-                <br>
+    <h3>Upload LaTeX Files</h3>
     <form action="{{ route('teacher.upload') }}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group" style="margin-top: 10px">
@@ -38,7 +36,6 @@
         </div>
     </div>
 @endsection
-
 
 <style>
 

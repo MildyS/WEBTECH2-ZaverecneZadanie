@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="container" style="margin-top: 10px;">
-        <h1>Student Dashboard</h1>
+        <h3>Student Dashboard</h3>
 
         <h3 style="margin-bottom: 10px">Published Files:</h3>
 
@@ -54,7 +54,7 @@
 
 
 <style>
-    h1, h3{
+    h3{
         color: #e5e7eb;
         font-weight: bolder;
     }
