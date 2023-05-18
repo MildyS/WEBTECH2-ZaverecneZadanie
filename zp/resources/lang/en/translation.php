@@ -23,7 +23,7 @@ return [
     'problem' => 'Problem:',
     'solution' => 'Solution:',
     'welcome' => 'Welcome',
-    'uploadedF' => 'Uploaded Files',
+    'uploadedF' => 'Uploaded Files:',
     'uploadedI' => 'Uploaded Images:',
     'fileName' => 'File Name',
     'status' => 'Status',
@@ -55,5 +55,10 @@ return [
     'ff' => 'Finished Files',
     'points' => 'Points',
     'nffy' => 'No finished files yet.',
-    'manual' => 'manual'
+    'manual' => 'Manual',
+    'res' => 'Results:',
+    'gen' => 'Number of solved tests:',
+    'export' => 'Export to CSV',
+    'students' => 'List of students:'
+
 ];

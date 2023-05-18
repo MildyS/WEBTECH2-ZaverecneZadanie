@@ -43,7 +43,7 @@
                 <ul class="navbar-nav ms-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/manual') }}">Manual</a>
+                        <a class="nav-link" href="{{ url('/manual') }}">@lang('translation.manual')</a>
                     </li>
 
 
