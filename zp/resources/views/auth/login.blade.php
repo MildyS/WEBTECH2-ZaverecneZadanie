@@ -77,28 +77,6 @@
                                 @enderror
                             </div>
                         </div>
-
-                        <div class="row mb-4">
-                            <div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                                    <label class="form-check-label" for="remember">
-                                        <span class="remember">@lang('translation.remember')</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row mb-4">
-                            <div>
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link"  style="padding-left: 0px" href="{{ route('password.request') }}">
-                                        <span class="forgotPassword">@lang('translation.forgotP')</span>
-                                    </a>
-                                @endif
-                            </div>
-                        </div>
                         <div class="row mb-5">
                             <div>
                                 <button type="submit" class="btn btn-primary">
