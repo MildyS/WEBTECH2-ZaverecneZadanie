@@ -18,7 +18,7 @@
                                 $image = json_decode($task->images, true);
                             @endphp
                             @if($image)
-                                <img src="{{ asset('/storage/latex_files/' . $image) }}" alt="Problem image">
+                                <img src="{{ asset('/storage/latex_files/' . $image) }}" alt="Problem image" style="max-width:100%; height:auto;">
                             @endif
                         @endif
 
