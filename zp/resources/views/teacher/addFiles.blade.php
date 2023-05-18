@@ -16,6 +16,13 @@
             <small class="text-danger">{{ $message }}</small>
             @enderror
         </div>
+        <div class="form-group" style="margin-top: 10px">
+            <label for="points" style="font-size: 20px">Points Per Problem</label>
+            <input type="number" name="points" id="points" class="form-control" required>
+            @error('points')
+            <small class="text-danger">{{ $message }}</small>
+            @enderror
+        </div>
         <button type="submit" class="btn btn-primary" style="margin-top: 10px">Add Files</button>
     </form>
     <br>
