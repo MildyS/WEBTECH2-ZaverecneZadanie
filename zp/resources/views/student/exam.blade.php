@@ -5,12 +5,12 @@
     <div class="container" style="margin-top: 10px;">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <h3 class="text">Exam</h3>
+                <h3 class="text">@lang('translation.exam')</h3>
                 <form action="{{ route('exam.submit') }}" method="POST" id="submitForm">
                     @csrf
 
                     @foreach($tasks as $task)
-                        <h3 class="text">Problem:</h3>
+                        <h3 class="text">@lang('translation.problem')</h3>
                         <p class="task">{{ $task->task }}</p>
 
                         @if($task->images)
@@ -18,24 +18,20 @@
                                 $image = json_decode($task->images, true);
                             @endphp
                             @if($image)
-                                <img src="{{ asset('/storage/latex_files/' . $image) }}" alt="Problem image">
+                                <img src="{{ asset('/storage/latex_files/' . $image) }}" alt="Problem image" style="max-width:100%; height:auto;">
                             @endif
                         @endif
 
                         <br>
                         <br>
                         <!-- CORTEX CODE -->
-                        <h3 class="text">Input:</h3>
+                        <h3 class="text">@lang('translation.input')</h3>
                         <math-field name="solution[{{ $task->id }}]"></math-field>
                         <br>
                         <br>
-                        <h3 class="text">Solution:</h3>
-                        <p>${{ $task->solution }}$</p>
-
-                        <br>
                     @endforeach
 
-                    <button id="submitButton" type="submit" class="btn btn-primary" >Submit</button>
+                    <button id="submitButton" type="submit" class="btn btn-primary" >@lang('translation.submit')</button>
                 </form>
             </div>
         </div>

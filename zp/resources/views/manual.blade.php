@@ -1,7 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+    <style>
+        @font-face {
+            font-family: 'DejaVu Serif';
+        }
 
+        /* Additional styling for elements using the font */
+        body {
+            font-family: 'DejaVu Serif', serif;
+        }
+    </style>
     <div class="container">
         <h3>Manuál</h3>
         <div>

@@ -3,9 +3,9 @@
 
 @section('content')
     <div class="container" style="margin-top: 10px;">
-        <h3>Student Dashboard</h3>
+        <h1>@lang('translation.dashboardStudent')</h1>
 
-        <h3 style="margin-bottom: 10px">Published Files:</h3>
+        <h3 style="margin-bottom: 10px">@lang('translation.publishedFiles')</h3>
 
         <form method="POST" action="{{ route('student.startExam') }}">
             <br>
@@ -20,18 +20,18 @@
                 @endif
             @endforeach
 
-            <button type="submit" class="btn btn-primary" style="margin-top: 20px">Start exam</button>
+            <button type="submit" class="btn btn-primary" style="margin-top: 20px">@lang('translation.startExam')</button>
         </form>
 
-        <h3 style="margin-bottom: 10px">Finished Files:</h3>
+        <h3 style="margin-bottom: 10px">@lang('translation.ff')</h3>
 
         @if($finishedFiles->isNotEmpty())
             <table class="table table-dark table-striped">
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">File Name</th>
-                    <th scope="col">Points</th>
+                    <th scope="col">@lang('translation.fileName')</th>
+                    <th scope="col">@lang('translation.points')</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -45,7 +45,7 @@
                 </tbody>
             </table>
         @else
-            <p>No finished files yet.</p>
+            <p>@lang('translation.nffy')</p>
         @endif
 
 
@@ -54,7 +54,7 @@
 
 
 <style>
-    h3{
+    h1, h3{
         color: #e5e7eb;
         font-weight: bolder;
     }
