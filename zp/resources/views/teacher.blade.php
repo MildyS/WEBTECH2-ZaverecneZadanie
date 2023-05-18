@@ -106,6 +106,30 @@
         </table>
         <br>
         <br>
+
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Files Generated</th>
+                <th>Total Points</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($studentData as $data)
+                <tr>
+                    <td>{{ $data['id'] }}</td>
+                    <td>{{ $data['name'] }}</td>
+                    <td>{{ $data['filesGenerated'] }}</td>
+                    <td>{{ $data['totalPoints'] }}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+
+
     </div>
 @endsection
 
