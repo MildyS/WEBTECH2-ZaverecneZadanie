@@ -44,6 +44,10 @@ class StudentController extends Controller
         // Initialize an empty array to hold the tasks
         $tasks = [];
 
+        if ($selectedFiles == null) {
+            return redirect()->route('student');
+        }
+
         // For each selected file, get a random task
         foreach ($selectedFiles as $fileId) {
             // Get a random task from the current file
