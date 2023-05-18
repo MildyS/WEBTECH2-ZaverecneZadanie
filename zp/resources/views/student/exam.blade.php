@@ -15,10 +15,13 @@
 
                         @if($task->images)
                             @php
-                                $images = json_decode($task->images, true);
+                                $image = json_decode($task->images, true);
                             @endphp
-                                <img src="{{ asset('/storage/latex_files' . $images) }}" alt="Problem image">
+                            @if($image)
+                                <img src="{{ asset('/storage/latex_files/' . $image) }}" alt="Problem image">
+                            @endif
                         @endif
+
                         <br>
                         <br>
                         <!-- CORTEX CODE -->
