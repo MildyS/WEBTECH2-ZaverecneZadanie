@@ -21,6 +21,7 @@ use App\Http\Controllers\ManualController;
 
 Route::get('/', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::get('/manual', [ManualController::class, 'show']);
+Route::get('/manual/pdf', [ManualController::class, 'generatePDF'])->name('manual.pdf');
 
 Auth::routes();
 
