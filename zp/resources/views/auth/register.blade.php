@@ -25,26 +25,29 @@
 {{--        });--}}
 {{--    </script>--}}
 <script>
-
     function changeLanguage(language) {
         $.ajax({
             url: '/change-language',
             type: 'POST',
             data: { language: language },
             success: function(response) {
-                // Handle success response if needed
+                // Handle success response
+
+
             },
             error: function(xhr, status, error) {
                 // Handle error response if needed
+
             }
         });
     }
+
 </script>
 
 
     <div class="container">
-        <button onclick="changeLanguage('en')">EN </button>
         <button onclick="changeLanguage('sk')">SK </button>
+
     <div class="row justify-content-center">
         <div class="col-md-11">
             <div >
@@ -112,7 +115,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-4 form-group row justify-content-center ">
+                        <div class="row mb-4 form-group row justify-content-center nopadding">
                             <label for="role">
                                 <h5>@lang('translation.role')</h5>
                             </label>
@@ -142,5 +145,9 @@
     h3, h5{
         color: #e5e7eb;
         font-weight: bolder;
+    }
+    .nopadding {
+        padding: 0 !important;
+        margin: 0 !important;
     }
 </style>
