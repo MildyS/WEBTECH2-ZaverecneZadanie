@@ -17,9 +17,7 @@
                             @php
                                 $images = json_decode($task->images, true);
                             @endphp
-                            @foreach($images as $image)
-                                <img src="{{ asset('/storage/latex_files' . $image) }}" alt="Problem image">
-                            @endforeach
+                                <img src="{{ asset('/storage/latex_files' . $images) }}" alt="Problem image">
                         @endif
                         <br>
                         <br>
