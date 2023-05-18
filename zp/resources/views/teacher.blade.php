@@ -4,7 +4,9 @@
 
 @section('content')
     <div class="container">
-        <h3>Welcome, Teacher!</h3>
+        <h3 style="margin-bottom: 10px">Welcome, Teacher!</h3>
+
+        <h3 style="margin-top: 20px">All students:</h3>
         <table class="table data-table t1 col-md-4">
             <thead>
             <tr>
@@ -23,14 +25,40 @@
             @endforeach
             </tbody>
 
-            <script>
-                $(document).ready(function () {
-                $('.t1').DataTable({
-                "order": [[1, "asc"]]
-                });
-                });
-            </script>
         </table>
+
+        <h3 style="margin-top: 20px">Student's results:</h3>
+        <table class="table t2">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th data-orderable="false" >Name</th>
+                <th>Files Generated</th>
+                <th>Total Points</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach($studentData as $data)
+                <tr>
+                    <td>{{ $data['id'] }}</td>
+                    <td>{{ $data['name'] }}</td>
+                    <td>{{ $data['filesGenerated'] }}</td>
+                    <td>{{ $data['totalPoints'] }}</td>
+                </tr>
+            @endforeach
+
+
+            </tbody>
+        </table>
+
+        <script>
+            $(document).ready(function () {
+                $('.t1, .t2').DataTable({
+                    "order": [[1, "asc"]]
+                });
+            });
+        </script>
+
         <br>
         <h3>Uploaded Files:</h3>
         <table class="table data-table col-md-4">
@@ -106,29 +134,6 @@
         </table>
         <br>
         <br>
-
-
-        <table class="table">
-            <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Files Generated</th>
-                <th>Total Points</th>
-            </tr>
-            </thead>
-            <tbody>
-            @foreach($studentData as $data)
-                <tr>
-                    <td>{{ $data['id'] }}</td>
-                    <td>{{ $data['name'] }}</td>
-                    <td>{{ $data['filesGenerated'] }}</td>
-                    <td>{{ $data['totalPoints'] }}</td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
-
 
     </div>
 @endsection
