@@ -94,12 +94,15 @@ class TeacherController extends Controller
     {
         $request->validate([
             'file' => 'required|mimes:tex|max:2048',
+            'points' => 'required|integer'
         ]);
 
         $file = $request->file('file');
         $fileName = time() . '_' . $file->getClientOriginalName();
 
         $path = $file->storeAs('public/latex_files', $fileName);
+
+        $points = $request->input('points');
 
         $latexFile = new LatexFile;
         $latexFile->file_name = $fileName;
@@ -113,13 +116,15 @@ class TeacherController extends Controller
             $task = new Task([
                 'task' => $content['task'],
                 'solution' => $content['solution'],
-                'images' => $content['images'],  // Convert the array of image paths to a JSON string
+                'images' => json_encode($content['images']),  // Convert the array of image paths to a JSON string
+                'points' => $points  // added points
             ]);
             $latexFile->tasks()->save($task);
         }
 
         return back()->with('success', 'File uploaded successfully!');
     }
+
 
 
 
