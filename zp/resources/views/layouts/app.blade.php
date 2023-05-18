@@ -88,6 +88,21 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <footer class="navbar navbar-expand-md shadow-sm navbar-dark bg-dark">
+            <div class="container">
+                <div class="col mb-3">
+                    <h4 class="y">@2023</h4>
+                </div>
+                <div class="col mb-6 names">
+                    <span>Autors:</span>
+                    <span class="n">Miloš Ilovský,</span>
+                    <span class="n">Katarína Poláčiková,</span>
+                    <span class="n">Eunika Farkašová,</span>
+                    <span class="n">Peter Plavy</span>
+                </div>
+            </div>
+
+        </footer>
     </div>
     @stack('scripts')
 </body>
@@ -98,13 +113,15 @@
         background-color: #202124;
     }
 
-    .navbar {
+    .navbar{
         color: #e5e7eb;
         font-weight: bolder;
         font-size: larger;
     }
 
-    .navbar-brand{
+    .navbar-brand,
+    .y,
+    .n{
         font-weight: bolder;
         color: #da3c8b
     }
@@ -116,6 +133,10 @@
     .nav-item :hover{
         color: #da3c8b;
         text-shadow: 0 0 1px #da3c8b;
+    }
+
+    .names{
+        text-align: right;
     }
 
 
