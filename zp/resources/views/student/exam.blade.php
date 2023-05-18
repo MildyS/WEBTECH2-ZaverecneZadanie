@@ -29,10 +29,6 @@
                         <math-field name="solution[{{ $task->id }}]"></math-field>
                         <br>
                         <br>
-                        <h3 class="text">Solution:</h3>
-                        <p>${{ $task->solution }}$</p>
-
-                        <br>
                     @endforeach
 
                     <button id="submitButton" type="submit" class="btn btn-primary" >Submit</button>
